@@ -257,10 +257,10 @@
       works.forEach((work) => {
         const isPublic = !!work.url;
 
-        const imgInner = `<img src="${work.image}" class="max-w-full max-h-full object-contain" alt="">`;
+        const imgInner = `<img src="${work.image}" class="w-full h-full object-cover" alt="">`;
 
         const imgTag = work.image
-          ? `<div class="h-48 bg-slate-200 border-2 border-black rounded-sm overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
+          ? `<div class="w-full sm:w-[15.5rem] h-auto min-h-[120px] bg-slate-200 border-2 border-black rounded-sm overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
                 ${isPublic ? `<a href="${work.url}" target="_blank" class="w-full h-full block">${imgInner}</a>` : imgInner}
              </div>`
           : "";
@@ -283,14 +283,14 @@
                         ${
                           work.image
                             ? `
-                            <div class="p-4 sm:pr-0 flex-shrink-0">
+                            <div class="p-4 sm:pr-0 w-full sm:w-auto flex-shrink-0">
                               ${imgTag}
                             </div>
                             `
                             : ""
                         }
 
-                        <div class="p-5 flex-1 min-w-0">
+                        <div class="p-5 flex-1 min-w-0 w-full">
                             <div class="flex flex-col">
                                 ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
 
