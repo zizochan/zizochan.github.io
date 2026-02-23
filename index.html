@@ -1,213 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-	<meta charset="utf8" />
-	<title>zizochan</title>
-</head>
-<body>
-        <h1>
-                zizochan products
-        </h1>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zizochan products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-        <h2>
-                2026/01
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/shinobu_ringo">しのぶちゃん リンゴかってきて</a></li>
-        </ul>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased leading-relaxed p-6 md:p-12"
+  >
+    <header class="max-w-5xl mx-auto mb-12 border-b-4 border-slate-900 pb-6">
+      <h1
+        class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 uppercase italic"
+      >
+        zizochan products
+      </h1>
+      <p class="text-sm text-slate-500 mt-2 font-mono">
+        My creations and experimental works.
+      </p>
+    </header>
 
-        <h2>
-                2025/12
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/shacho_ato_60">社長！人類滅亡まであと60秒です</a></li>
-        </ul>
+    <div id="works-container" class="space-y-8"></div>
 
-        <h2>
-                2025/11
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/ninja_vs_rain_boots">ニンジャ vs 長靴軍団 最後の聖魔決戦２</a></li>
-        </ul>
+    <footer
+      class="max-w-5xl mx-auto mt-20 mb-12 border-t border-slate-200 pt-8 text-center"
+    >
+      <div class="flex justify-center gap-8 mb-4">
+        <a
+          href="https://x.com/zizojp"
+          target="_blank"
+          class="text-sm font-bold text-slate-600 hover:text-blue-400 transition-colors flex items-center gap-1"
+        >
+          <span class="text-xs">𝕏</span> Twitter(X)
+        </a>
+        <a
+          href="https://github.com/zizochan"
+          target="_blank"
+          class="text-sm font-bold text-slate-600 hover:text-black transition-colors flex items-center gap-1"
+        >
+          <span class="text-xs">GitHub</span>
+        </a>
+        <a
+          href="https://booklog.jp/users/zizochanx"
+          target="_blank"
+          class="text-sm font-bold text-slate-600 hover:text-black transition-colors flex items-center gap-1"
+        >
+          <span class="text-xs">boolog</span>
+        </a>
+      </div>
+      <p class="text-[10px] text-slate-400 font-mono">© 2026 zizochan</p>
+    </footer>
 
-        <h2>
-                2025/08
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/beat_the_duel">BEAT THE DUEL</a></li>
-        </ul>
+    <script>
+      // 作品データ
+      const works = [
+        {
+          title: "しのぶちゃん リンゴかってきて",
+          url: "https://unityroom.com/games/shinobu_ringo",
+          date: "2026/01",
+          image: "images/202601_shinobu_ringo.png",
+          desc: "しのぶちゃんがママのお使いでりんごをかってくる短編アドベンチャーです。<br>YarnSpinnerのテスト用に作成しました。",
+        },
+        {
+          title: "社長！人類滅亡まであと60秒です",
+          url: "https://unityroom.com/games/shacho_ato_60",
+          date: "2025/12",
+          image: "images/202512_shacho_ato_60.png",
+          desc: "1人用のリアルタイム桃鉄っぽいゲームです。<br>60秒以内に目標額を稼いで、人類滅亡を回避してください。<br>Unity1週間ゲームジャム お題「もうひとつ」の投稿作品です。",
+        },
+        {
+          title: "ニンジャ vs 長靴軍団 最後の聖魔決戦２",
+          url: "https://unityroom.com/games/ninja_vs_rain_boots",
+          date: "2025/11",
+          image: "images/202511_ninja_vs_rain_boots.png",
+          desc: "正義の忍者を操作して、悪の長靴軍団を成敗しましょう！<br>…と見せかけて、ただひたすら長靴を取るだけのゲームです。<br>あほげー第48回 お題「長靴」の投稿作品です。",
+        },
+        {
+          title: "BEAT THE DUEL",
+          url: "https://unityroom.com/games/beat_the_duel",
+          date: "2025/07",
+          image: "images/202507_beat_the_duel.png",
+          desc: "音ゲー×カードゲームです。<br>リズムゲージに合わせて、タイミングよく召喚や攻撃を行うことで、ボーナスが得られます。<br>Unity1週間ゲームジャム お題「ひく」の投稿作品です。",
+        },
+      ];
 
-        <h2>
-                2025/07
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/inochi_idol_ninniku">いのち短しアイドルせよニンニク</a></li>
-        </ul>
+      const container = document.getElementById("works-container");
 
-        <h2>
-                2025/04
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/subete_ai_ninaru">すべては藍になる</a></li>
-        </ul>
+      works.forEach((work) => {
+        const imgTag = work.image
+          ? `<div class="w-full h-48 bg-slate-200 rounded-lg mb-3 overflow-hidden">
+                        <img src="${work.image}" class="w-full h-full object-contain" alt="">
+                       </div>`
+          : "";
 
-        <h2>
-                2024/08
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/mirror_numbers">MIRROR NUMBERS</a></li>
-        </ul>
+        const dateTag = work.date
+          ? `<span class="text-xs text-slate-400 font-mono shrink-0">${work.date}</span>`
+          : "";
 
-        <h2>
-                2024/03
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/min_max_clicker">MIN↔MAX CLICKER</a></li>
-        </ul>
+        const section = `
+                  <section class="group bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow overflow-hidden">
+                      <div class="flex flex-col sm:flex-row items-center sm:items-stretch">
 
-        <h2>
-                2023/12
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/3keywords_chatgpt_kangaete">３つのキーワードからChatGPTに設定を考えてもらうゲーム</a></li>
-        </ul>
+                          ${
+                            work.image
+                              ? `
+                                  <div class="p-4 sm:pr-0 flex-shrink-0">
+                                      <div class="w-64 h-36 bg-slate-50 border-2 border-black rounded-sm overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                          <img src="${work.image}" class="w-full h-full object-contain" alt="">
+                                      </div>
+                                  </div>
+                              `
+                              : ""
+                          }
 
-        <h2>
-                2022/09
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/yakeppachi">やけっぱちシューティング道場</a></li>
-        </ul>
+                          <div class="p-5 flex-1 min-w-0">
+                              <div class="flex flex-col">
+                                  ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
 
-        <h2>
-                2022/07
-        </h2>
-        <ul>
-                <li>君のぬか漬けを食べたい（非公開）</li>
-        </ul>
+                                  <h2 class="text-lg font-bold group-hover:text-blue-600 transition-colors truncate">
+                                      <a href="${work.url}" target="_blank">${work.title}</a>
+                                  </h2>
 
-        <h2>
-                2022/05
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/same_color_count_up">Same Color Count up Puzzle</a></li>
-        </ul>
+                                  <a href="${work.url}" target="_blank" class="text-xs text-blue-500 hover:underline break-all font-mono mt-1">
+                                      ${work.url}
+                                  </a>
+                              </div>
 
-        <h2>
-                2022/02
-        </h2>
-        <ul>
-                <li><a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/102105304014215509227612142206047962914400132987917717027285135171882730913793">NFT ART RYW</a></li>
-                <li><a href="https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/102105304014215509227612142206047962914400132987917717027285135171882730913793">NFT ART RYW-A</a></li>
-        </ul>
-
-        <h2>
-                2021/12
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/furisosogu_sei">降り注ぐ「正」から地球を守るゲーム</a></li>
-        </ul>
-
-        <h2>
-                2021/09
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/unfinished_quest">Unfinished Quest</a></li>
-        </ul>
-
-        <h2>
-                2021/05
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/16vanish">16Vanish</a></li>
-        </ul>
-
-        <h2>
-                2021/02
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/deck_card_loves">ラブミニオン</a></li>
-        </ul>
-
-        <h2>
-                2020/12
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/intuition_minesweeper">直感マインスイーパ</a></li>
-        </ul>
-
-        <h2>
-                2020/10
-        </h2>
-        <ul>
-                <li><a href="https://store.line.me/stickershop/product/13515850">ONE PIECE 名言等スタンプ</a></li>
-        </ul>
-
-        <h2>
-                2020/09
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/peracon2020">恋する審査員は厳しくて才能が無い企画を見るとすぐ支笏湖行きとか言っちゃうの</a></li>
-        </ul>
-
-        <h2>
-                2020/08
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/puzzle_999">PUZZLE 999</a></li>
-                <li><a href="https://unityroom.com/games/inochi_kagayaki_drop">いのちは輝く、星降る夜に</a></li>
-        </ul>
-
-        <h2>
-                2020/07
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/100day">100日目に完成するクソゲー</a></li>
-        </ul>
-
-        <h2>
-                2020/05
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/manga_title_shuffle">秘密のマンガ編集部</a></li>
-        </ul>
-
-        <h2>
-                2020/03
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/ijiwaru_hansha_shinkei">いじわる反射神経</a></li>
-        </ul>
-
-        <h2>
-                2019/10
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/sagasagashi">さがさがし！</a></li>
-        </ul>
-
-        <h2>
-                2019/07
-        </h2>
-        <ul>
-                <li><a href="https://unityroom.com/games/zizochan_rougo_2000man">【悲報】老後資金は2000万円必要です</a></li>
-        </ul>
-
-        <h2>
-                2019/05
-        </h2>
-        <ul>
-                <li><a href="https://novelgame.jp/games/show/1853">零和の唄</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=jp.zizo.tako_lion_puzzle">タコとライオン</a></li>
-        </ul>
-
-        <h2>
-                Other
-        </h2>
-        <ul>
-                <li><a href="https://github.com/zizochan">GitHub</a></li>
-                <li><a href="https://twitter.com/zizojp">Twitter</a></li>
-                <li><a href="https://booklog.jp/users/zizochanx">booklog</a></li>
-        </ul>
-</body>
+                              <p class="text-sm text-slate-600 mt-4 leading-relaxed line-clamp-3">
+                                  ${work.desc}
+                              </p>
+                          </div>
+                      </div>
+                  </section>
+              `;
+        container.innerHTML += section;
+      });
+    </script>
+  </body>
 </html>
