@@ -63,6 +63,20 @@
       // 作品データ
       const works = [
         {
+          title: "表裏３マッチパズル",
+          url: "https://unityroom.com/games/omote_ura_3match_puzzle",
+          date: "2026/03",
+          image: "images/202603_omote_ura_3match_puzzle.png",
+          desc: "表と裏でつながってるボードの中で、<br>パネルを3つ揃えて消すパズルゲームです。<br>Unity1週間ゲームジャム お題「うら」の投稿作品です。",
+        },
+        {
+          title: "自動販売機 神経衰弱",
+          url: "https://unityroom.com/games/jido_hanbaiki_shinkei_suijaku",
+          date: "2026/03",
+          image: "images/202603_jido_hanbaiki_shinkei_suijaku.png",
+          desc: "自動販売機を神経衰弱のようにめくって消していくゲームです。<br>あほげー第49回 お題「自動販売機」の投稿作品です。",
+        },
+        {
           title: "しのぶちゃん リンゴかってきて",
           url: "https://unityroom.com/games/shinobu_ringo",
           date: "2026/01",
@@ -261,8 +275,8 @@
 
         const imgTag = work.image
           ? `<div class="w-full sm:w-[15.5rem] h-auto min-h-[120px] bg-slate-200 border-2 border-black rounded-sm overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
-                ${isPublic ? `<a href="${work.url}" target="_blank" class="w-full h-full block">${imgInner}</a>` : imgInner}
-             </div>`
+                      ${isPublic ? `<a href="${work.url}" target="_blank" class="w-full h-full block">${imgInner}</a>` : imgInner}
+                   </div>`
           : "";
 
         const dateTag = work.date
@@ -278,33 +292,33 @@
           : "";
 
         const section = `
-                <section class="group bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow overflow-hidden">
-                    <div class="flex flex-col sm:flex-row items-center sm:items-stretch">
-                        ${
-                          work.image
-                            ? `
-                            <div class="p-4 sm:pr-0 w-full sm:w-auto flex-shrink-0">
-                              ${imgTag}
-                            </div>
-                            `
-                            : ""
-                        }
+                      <section class="group bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow overflow-hidden">
+                          <div class="flex flex-col sm:flex-row items-center sm:items-stretch">
+                              ${
+                                work.image
+                                  ? `
+                                  <div class="p-4 sm:pr-0 w-full sm:w-auto flex-shrink-0">
+                                    ${imgTag}
+                                  </div>
+                                  `
+                                  : ""
+                              }
 
-                        <div class="p-5 flex-1 min-w-0 w-full">
-                            <div class="flex flex-col">
-                                ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
+                              <div class="p-5 flex-1 min-w-0 w-full">
+                                  <div class="flex flex-col">
+                                      ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
 
-                                <h2 class="text-lg font-bold ${isPublic ? "group-hover:text-blue-600" : "text-slate-800"} transition-colors leading-tight">
-                                    ${titleContent}
-                                </h2>
+                                      <h2 class="text-lg font-bold ${isPublic ? "group-hover:text-blue-600" : "text-slate-800"} transition-colors leading-tight">
+                                          ${titleContent}
+                                      </h2>
 
-                                ${urlLinkHtml}
-                            </div>
-                            <p class="text-sm text-slate-600 mt-4 leading-relaxed whitespace-pre-wrap">${work.desc}</p>
-                        </div>
-                    </div>
-                </section>
-              `;
+                                      ${urlLinkHtml}
+                                  </div>
+                                  <p class="text-sm text-slate-600 mt-4 leading-relaxed whitespace-pre-wrap">${work.desc}</p>
+                              </div>
+                          </div>
+                      </section>
+                    `;
         container.innerHTML += section;
       });
     </script>
