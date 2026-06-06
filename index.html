@@ -63,6 +63,13 @@
       // 作品データ
       const works = [
         {
+          title: "え!!クイズを解きながらポンを!?出来らぁっ！",
+          url: "https://unityroom.com/games/pong_dekira",
+          date: "2026/06",
+          image: "images/202606_pong_dekira.png",
+          desc: "クイズを解きながら「ポン」をプレイするゲームです。<br>クイズを間違えるとペナルティがあります。<br>Claude Codeの実験のために、ノーコードで開発しました。",
+        },
+        {
           title: "Grid Monsters",
           url: "https://zizochan.itch.io/grid-monsters",
           date: "2026/05",
@@ -296,8 +303,8 @@
 
         const imgTag = work.image
           ? `<div class="w-full sm:w-[15.5rem] h-auto min-h-[120px] bg-slate-200 border-2 border-black rounded-sm overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
-                      ${isPublic ? `<a href="${work.url}" target="_blank" class="w-full h-full block">${imgInner}</a>` : imgInner}
-                   </div>`
+                            ${isPublic ? `<a href="${work.url}" target="_blank" class="w-full h-full block">${imgInner}</a>` : imgInner}
+                         </div>`
           : "";
 
         const dateTag = work.date
@@ -313,33 +320,33 @@
           : "";
 
         const section = `
-                      <section class="group bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow overflow-hidden">
-                          <div class="flex flex-col sm:flex-row items-center sm:items-stretch">
-                              ${
-                                work.image
-                                  ? `
-                                  <div class="p-4 sm:pr-0 w-full sm:w-auto flex-shrink-0">
-                                    ${imgTag}
-                                  </div>
-                                  `
-                                  : ""
-                              }
+                            <section class="group bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow overflow-hidden">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-stretch">
+                                    ${
+                                      work.image
+                                        ? `
+                                        <div class="p-4 sm:pr-0 w-full sm:w-auto flex-shrink-0">
+                                          ${imgTag}
+                                        </div>
+                                        `
+                                        : ""
+                                    }
 
-                              <div class="p-5 flex-1 min-w-0 w-full">
-                                  <div class="flex flex-col">
-                                      ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
+                                    <div class="p-5 flex-1 min-w-0 w-full">
+                                        <div class="flex flex-col">
+                                            ${work.date ? `<span class="text-[10px] text-slate-400 font-mono mb-1">${work.date}</span>` : ""}
 
-                                      <h2 class="text-lg font-bold ${isPublic ? "group-hover:text-blue-600" : "text-slate-800"} transition-colors leading-tight">
-                                          ${titleContent}
-                                      </h2>
+                                            <h2 class="text-lg font-bold ${isPublic ? "group-hover:text-blue-600" : "text-slate-800"} transition-colors leading-tight">
+                                                ${titleContent}
+                                            </h2>
 
-                                      ${urlLinkHtml}
-                                  </div>
-                                  <p class="text-sm text-slate-600 mt-4 leading-relaxed whitespace-pre-wrap">${work.desc}</p>
-                              </div>
-                          </div>
-                      </section>
-                    `;
+                                            ${urlLinkHtml}
+                                        </div>
+                                        <p class="text-sm text-slate-600 mt-4 leading-relaxed whitespace-pre-wrap">${work.desc}</p>
+                                    </div>
+                                </div>
+                            </section>
+                          `;
         container.innerHTML += section;
       });
     </script>
